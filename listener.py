@@ -11,11 +11,17 @@ def handle(client: socket.socket):
     dbConn = sqlite3.connect('bees.db')
     cursor = dbConn.cursor()
     for line in f:
+        print(line)
         size, speed = [int(x) for x in line.split(',')]
-        cursor.execute('INSERT INTO bees(size, speed) VALUES ({:d}, {:d})'.format(size, speed))
+        sql = 'INSERT INTO bees(size, speed) VALUES (?, ?);'
+        cursor.execute(sql, (size, speed))
+    dbConn.commit()
+    cursor.close()
+    dbConn.close()
 
 
 s.listen(10)
 while 1:
     conn, addr = s.accept()
+    print("Connection from: " + str(addr))
     Thread(target=handle, args=(conn,)).start()
