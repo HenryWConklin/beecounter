@@ -1,9 +1,10 @@
-import dash
-from dash.dependencies import Output, Event
-import dash_core_components as dcc
-import dash_html_components as html
 import sqlite3
 from datetime import datetime
+
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+from dash.dependencies import Output, Event
 
 app = dash.Dash()
 app.layout = html.Div(children=[
@@ -43,7 +44,6 @@ def updateSize():
     data = [abs(int(d[0])) for d in data]
     return {'data': [{'x': data, 'type': 'histogram', 'name': 'Speed'}],
             'layout': {'title': 'Speed'}}
-
 
 
 if __name__ == '__main__':
