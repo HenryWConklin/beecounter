@@ -48,6 +48,6 @@ def updateSize():
 
 
 if __name__ == '__main__':
-    debug = len(sys.argv) > 1 and sys.argv[1] == '--debug':
+    debug = len(sys.argv) > 1 and sys.argv[1] == '--debug'
         
     app.run_server(debug=debug)
