@@ -9,7 +9,7 @@ from dash.dependencies import Output, Event
 app = dash.Dash()
 app.layout = html.Div(children=[
     html.H1('Bee Monitor Dashboard'),
-    dcc.Interval(id='graph-update', interval=1000),
+    dcc.Interval(id='graph-update', interval=5000),
     dcc.Graph(id='time'),
     dcc.Graph(id='size'),
     dcc.Graph(id='speed')
