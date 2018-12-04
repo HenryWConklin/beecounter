@@ -12,7 +12,7 @@ def handle(client: socket.socket):
     cursor = dbConn.cursor()
     for line in f:
         print(line)
-        size, speed = [int(x) for x in line.split(',')]
+        size, speed = [float(x) for x in line.split(',')]
         sql = 'INSERT INTO bees(size, speed) VALUES (?, ?);'
         cursor.execute(sql, (size, speed))
     dbConn.commit()
