@@ -11,7 +11,7 @@ def handle(client: socket.socket):
     dbConn = sqlite3.connect('bees.db')
     cursor = dbConn.cursor()
     for line in f:
-        print(line)
+        print(line.strip())
         size, speed = [float(x) for x in line.split(',')]
         sql = 'INSERT INTO bees(size, speed) VALUES (?, ?);'
         cursor.execute(sql, (size, speed))
