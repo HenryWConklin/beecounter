@@ -42,7 +42,7 @@ def updateSpeed():
 def updateTable():
     conn = sqlite3.connect('bees.db')
     cursor = conn.cursor()
-    cursor.execute('SELECT t.size, t.speed, t.time FROM bees t;')
+    cursor.execute('SELECT t.size, t.speed, t.time FROM bees t ORDER BY t.time DESC;')
     data = cursor.fetchall()
     return [{k:v for v,k in zip(r, ['size', 'speed', 'time'])} for r in data]
 
