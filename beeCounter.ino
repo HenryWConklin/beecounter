@@ -4,13 +4,11 @@
 
 #define STATUS_LED 2
 
-const char* addr = "ec2-18-207-178-234.compute-1.amazonaws.com";
+const char* addr = "host.example.com";
 const int port = 8888;
 
-//const char* ssid = "ZyXEL02FC90";
-//const char* password = "VKJANF3C74T34";
-const char* ssid = "wahoo";
-const char* password = "";
+const char* ssid = "SSID";
+const char* password = "PASSWORD";
 
 const uint16 sampleSize = 4096;
 uint16 data[sampleSize];
